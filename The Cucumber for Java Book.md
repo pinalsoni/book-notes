@@ -3,7 +3,7 @@
 
 
 
-## Chapter 3. Gherking Basics
+## Chapter 3. Gherkin Basics
 ### Feature description:
 - Summary documentation about a group of tests
 - Line cannot begin with ‘Scenario’, ‘Background’ and ‘Scenario Outline’
@@ -25,11 +25,11 @@
 - Cucumber doesn’t actually care which of the keywords(given, when, then, and, but) are used; the choice is simply there to help you create the most readable scenario; Only thing that matters is that everybody understands what’s communicated by using these keywords
 
 #### Naming scenarios:
-    - Focus on writing a concise, expressive name - when tests break, it’s the failing scenario’s name that helps you understand breakage
-    - Helps avoid reading individual steps to understand what are the scenario is testing
-    - Well-composed scenario name will still make sense in case of adding extra steps in future
-    - Avoid putting anything about the outcome of the scenarios into the name and concentrate on summarizing the context and event of the scenario
-    - When modifying existing scenarios, check the name that still make sense, update description to make sure what is being tested is described correctly. This helps avoid confusion
+- Focus on writing a concise, expressive name - when tests break, it’s the failing scenario’s name that helps you understand breakage
+- Helps avoid reading individual steps to understand what are the scenario is testing
+- Well-composed scenario name will still make sense in case of adding extra steps in future
+- Avoid putting anything about the outcome of the scenarios into the name and concentrate on summarizing the context and event of the scenario
+- When modifying existing scenarios, check the name that still make sense, update description to make sure what is being tested is described correctly. This helps avoid confusion
 
 ### Concrete Examples
 Help everyone in the team understand what we want the software to do and hence facilitates better communication between developers and stakeholders which further reduces waste.
@@ -49,11 +49,11 @@ Help everyone in the team understand what we want the software to do and hence f
 Automated acceptance tests generally try to simulate user interactions with the system, and the step definitions are where you’ll tell cucumber how you want it to poke around with your system.
 
 ### Matching Step:
-    - Steps are expressed as plain text
-    - Cucumber scans the text of each step for patterns that recognizes, which are defined using regexes
-    - Annotations: Just there for extra documentation to help express the intent of each step or step def
-    - Will match any gherkin step as long as the reg ex matches the main text of the step
-    - Choose wordings of steps carefully to avoid ambiguity. Focus on communicating what exactly the steps will do when executed.
+- Steps are expressed as plain text
+- Cucumber scans the text of each step for patterns that recognizes, which are defined using regexes
+- Annotations: Just there for extra documentation to help express the intent of each step or step def
+- Will match any gherkin step as long as the reg ex matches the main text of the step
+- Choose wordings of steps carefully to avoid ambiguity. Focus on communicating what exactly the steps will do when executed.
 
 ### Specificity vs. Flexibility
 - Specific scenarios are great but limit reuse. To enable this and making scenarios much more flexible, capture arguments in scenarios.
@@ -91,29 +91,25 @@ NOTE: $ itself is a meta character and hence it is preceeded with backslashes
         _The question mark modifier_: Means zero or one times; use when odd character in a match does not matter such as singular or plural; makes the preceding character optional
 
 #### Multiple Captures:
-    - OK if we use multiple capture group in our regex
-    - Cucumber will pass an argument in our method for every capture group in regex
-    - Flexibility:
-      - Encourage our feature authors to be consistent about the nouns and verbs
-      - Express as naturally as possible; usage of slightly different phrasing to mean exactly the same thing
+- OK if we use multiple capture group in our regex
+- Cucumber will pass an argument in our method for every capture group in regex
+- Flexibility:
+  - Encourage our feature authors to be consistent about the nouns and verbs
+  - Express as naturally as possible; usage of slightly different phrasing to mean exactly the same thing
   
 
 #### Noncapturing Groups:
-    - Helps recognize multiple phrases
-    - The ?: at the start of the group marks it as noncapturing, meaning Cucumber won’t pass it as an argument to our block
+- Helps recognize multiple phrases
+- The ?: at the start of the group marks it as noncapturing, meaning Cucumber won’t pass it as an argument to our block
 
 #### Anchors:
-    - Steps start with a ^ and ends with a $
-    - Not mandatory
-    - Keep your regular expressions tight to avoid step definitions clashing with each other.
+- Steps start with a ^ and ends with a $
+- Not mandatory
+- Keep your regular expressions tight to avoid step definitions clashing with each other.
 
 #### Reporting Results
 Cucumber communicates results by either throwing or not throwing an exception. Status could be one of the following:
-    - Failed: Assertion failure
-    - Pending: Under construction (In progress…)
-    - Undefined: Matching step definition has not yet been defined
-    - Skipped:
-    - Passed
+ Failed. Pending, Undefined, Skipped and Passed
 
 Pending vs. Undefined status:
 **Pending step definitions** are halfway through being implemented; it marks the step as pending (yellow); sceanrio will be stopped and the rest of the steps will be skipped or marked as undefined. Can be used to signal in-progress work or to-do items. 
