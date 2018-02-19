@@ -45,8 +45,8 @@ Help everyone in the team understand what we want the software to do and hence f
 - Much easier to validate against the running system than vague requirement statements
 
 
-## Step Definitions: Focus on HOW
-Automated acceptance tests generally try to simulate user interactions with the system, and the step definitions are where you’ll tell cucumber how you want it to poke around with your system.
+## Chapter 4. Step Definitions: From the Outside In
+Step defs focus on HOW - tells cucumber _how_ you want it to poke around with the system.
 
 ### Matching Step:
 - Steps are expressed as plain text
@@ -65,19 +65,19 @@ Automated acceptance tests generally try to simulate user interactions with the 
 Surround part of a reg ex with parantheses. Used to highlight particular parts of a pattern that you want to lift out of the matching text and use
 
 **Wild cards**
-1. Alternation:
+_Alternation_
 - Provide different options separated by a pipe
 - Useful when there are fixed set of values that you want to accept in your step def
 
-2. The Dot:
+_The Dot_
 - Metacharacter, matches any single character
 - Can be escaped by preceding them with a backslash
 NOTE: $ itself is a meta character and hence it is preceeded with backslashes
 
-3. The Star: (greedy operator)
+_The Star: (greedy operator)_
 - Repeatition - any number of times
 
-4. Character classes
+_Character classes_
 - Allows you to tell the regex expression engine to match one of a range of characters
 - Simply place all of the chars you would accept inside square brackets
 - Continuous range of characters: Use hyphen
@@ -87,8 +87,8 @@ NOTE: $ itself is a meta character and hence it is preceeded with backslashes
         \s - whitespace character, typically [\t\r\n]
         \b - word boundary: anything that is not a word character is a word boundary
         \D - any character except a digit
-        _The Plus_:‘+’ modifier means at least once
-        _The question mark modifier_: Means zero or one times; use when odd character in a match does not matter such as singular or plural; makes the preceding character optional
+ _The Plus_
+ - ‘+’ modifier means at least once  
 
 #### Multiple Captures:
 - OK if we use multiple capture group in our regex
@@ -103,15 +103,14 @@ NOTE: $ itself is a meta character and hence it is preceeded with backslashes
 - The ?: at the start of the group marks it as noncapturing, meaning Cucumber won’t pass it as an argument to our block
 
 #### Anchors:
-- Steps start with a ^ and ends with a $
-- Not mandatory
+- Not mandatory; steps start with a ^ and ends with a $
 - Keep your regular expressions tight to avoid step definitions clashing with each other.
 
 #### Reporting Results
 Cucumber communicates results by either throwing or not throwing an exception. Status could be one of the following:
  Failed. Pending, Undefined, Skipped and Passed
 
-Pending vs. Undefined status:
+_Pending vs. Undefined status_
 **Pending step definitions** are halfway through being implemented; it marks the step as pending (yellow); sceanrio will be stopped and the rest of the steps will be skipped or marked as undefined. Can be used to signal in-progress work or to-do items. 
 
 **Undefined step definitions** are the ones that do not exist yet (cucumber failed to find those during execution).
