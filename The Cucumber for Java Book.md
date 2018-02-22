@@ -112,3 +112,29 @@ _Pending vs. Undefined status_
 **Pending step definitions** are halfway through being implemented; it marks the step as pending (yellow); sceanrio will be stopped and the rest of the steps will be skipped or marked as undefined. Can be used to signal in-progress work or to-do items. 
 
 **Undefined step definitions** are the ones that do not exist yet (cucumber failed to find those during execution).
+
+
+## Chapter 5. Gherkin Basics
+Readability should be the number-one goal when writing Gherkin features
+
+### Background
+- Good way to declutter setup steps 
+- Don’t use Background to set up complicated state
+- Strive to keep your background section short
+- Avoid putting technical details such as clearing queues, starting back-end services, or opening browsers in a background
+
+### Data Tables
+- Multiple formats available for data tables 
+
+### Scenario Outlines
+- Helps to be able to see edge case(s) 
+- Provides a very nice way to visualize coverage 
+- Can be used to separate out positive and negative paths with different data inputs 
+
+### Doc Strings
+- Use for JSON validation 
+
+### Tags and Subfolders
+- Allows users to organize tests better
+- Use tags to categorize and execute subset of features 
+- Tags applied at the feature level applies to all scenarios within the feature file 
